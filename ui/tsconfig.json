@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "es3",
+        "module": "commonjs",
+        "sourceMap": true,
+        "outDir": "bin"
+    },
+    "compileOnSave": true
+}

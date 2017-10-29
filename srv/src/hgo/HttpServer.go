@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+type HttpFunc func(responseWriter http.ResponseWriter, request *http.Request)
+
 func StartHttpServer(address string) *http.Server {
 	var server = &(http.Server{Addr: address})
 	go server.ListenAndServe()

@@ -8,11 +8,18 @@ import (
 )
 
 type WebUI struct {
-	Holder  sync.WaitGroup
-	Stopped int32
+	URL          string
+	Holder       sync.WaitGroup
+	Stopped      int32
+	DebugEnabled bool
+}
+
+func (this *WebUI) Create() {
+	this.URL = "/hsite"
 }
 
 func (this *WebUI) Start() {
+	this.SetupFiles()
 }
 
 func (this *WebUI) WrapRequestHandler(h hgo.HttpFunc) hgo.HttpFunc {
@@ -31,4 +38,8 @@ func (this *WebUI) Stop() {
 }
 
 func (this *WebUI) SetupFiles() {
+	var dir = hgo.AppDir + "/../ui/jsc"
+	var url = this.URL + "/jsc/"
+	http.Handle(url, http.StripPrefix(url,
+		http.FileServer(http.Dir(dir))))
 }

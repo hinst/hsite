@@ -10,4 +10,5 @@ func main() {
 	fmt.Println("STARTING...")
 	var app = &hsite.App{}
 	app.Run()
+	fmt.Println("EXITING...")
 }

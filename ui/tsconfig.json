@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
         "target": "es3",
-        "module": "commonjs",
+        "module": "system",
         "sourceMap": true,
-        "outDir": "jsc"
+        "outFile": "jsc/bundle.js"
     },
     "compileOnSave": true
 }
